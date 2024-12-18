@@ -62,9 +62,9 @@ const getFormattedCredentials = () => {
 }
 
 const handleLogin = () => {
-    axios.post('http://localhost/api/login', getFormattedCredentials())
+    axios.post('http://127.0.0.1:8000/api/login', getFormattedCredentials())
         .then((response) => {
-            console.log(response.data)
+            console.log("mike tyson", response.data)
             waitingOnVerification.value = true
         })
         .catch((error) => {
@@ -74,7 +74,7 @@ const handleLogin = () => {
 }
 
 const handleVerification = () => {
-    axios.post('http://localhost/api/login/verify', getFormattedCredentials())
+    axios.post('http://127.0.0.1:8000/api/login/verify', getFormattedCredentials())
         .then((response) => {
             console.log(response.data) // auth token
             localStorage.setItem('token', response.data)
